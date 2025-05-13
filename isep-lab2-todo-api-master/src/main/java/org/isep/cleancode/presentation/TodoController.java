@@ -14,8 +14,7 @@ import java.util.List;
 
 public class TodoController {
     private static final Gson gson = new Gson();
-    private final TodoManager manager = new TodoManager(new TodoRepository());
-
+    private final TodoManager manager;
 
     public TodoController(TodoManager manager){
         this.manager=manager;

@@ -11,9 +11,9 @@ import java.util.List;
 
 public class TodoManager {
 
-    private final TodoRepository repository;
+    private final ITodoRepository repository;
 
-    public TodoManager(TodoRepository repository){
+    public TodoManager(ITodoRepository repository){
         this.repository=repository;
     }
 
@@ -43,7 +43,7 @@ public class TodoManager {
             try{
                 LocalDate.parse(newTodo.getDate(), DateTimeFormatter.ISO_LOCAL_DATE);
             } catch (DateTimeParseException e){
-                throw new IllegalArgumentException("La date n'ai pas au bon format: yyyy-mm-dd");
+                throw new IllegalArgumentException("La date n'est pas au bon format: yyyy-mm-dd");
             }
         }
         repository.addTodo(newTodo);
